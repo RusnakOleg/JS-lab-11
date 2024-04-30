@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Переміщення квадрата по колу</title>
+<style>
+    #container {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div id="container"></div>
+
+<script>
+    var R = 100;
+    var t = 0;
+    var dt = 0.01;
+    var centerX = 150;
+    var centerY = 150;
+
+    function moveSquare() {
+        var x = centerX + R * Math.cos(t);
+        var y = centerY + R * Math.sin(t);
+
+        document.getElementById('container').style.left = x + 'px';
+        document.getElementById('container').style.top = y + 'px';
+
+        t += dt;
+        if (t > 2 * Math.PI) {
+            t = 0;
+        }
+    }
+
+    setInterval(moveSquare, 10);
+</script>
+
+</body>
+</html>
